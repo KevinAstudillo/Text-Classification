@@ -11,7 +11,7 @@ This notebook use a Kaggle Dataset of thousands of Twitter responses with a seti
 ### 1. [main_gui.py](./main_gui.py)
 Main script to launch the graphical user interface. It enables users to interact with project functionalities such as campaign management, result visualization, and filtering options.
 
-### 2. [util/](./src/util)
+### 2. [util/](./utils)
 Utility folder containing configuration files and constant definitions.
 
 - [config/](./src/util/config)
