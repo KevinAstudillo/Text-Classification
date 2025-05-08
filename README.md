@@ -1,15 +1,23 @@
 # Text Clasification using distinct ML Models
 
-## General Overview and Objective
+## 📊 General Overview and Objective
 
-This notebook use a Kaggle Dataset of thousands of Twitter responses with a setiment label.
+This notebook uses a Kaggle dataset containing thousands of Twitter responses labeled with sentiment. The goal is to build and evaluate different machine learning models for text classification based on these responses.
+
+## 📌 Description
+
+This project implements a text classification system using various machine learning models. It focuses on analyzing Twitter responses labeled by sentiment, allowing for the comparison of different algorithms' performance in sentiment analysis tasks.
+
+## 🎯 Objective
+
+To explore and compare the performance of different text classification models applied to real-world data, providing a foundation for future research and applications in Natural Language Processing (NLP).
 
 ---
 
 ## Folder Structure
 
-### 1. [main_gui.py](./main_gui.py)
-Main script to launch the graphical user interface. It enables users to interact with project functionalities such as campaign management, result visualization, and filtering options.
+### 1. [Text Classification.ipynb](./Text Classification.ipynb)
+The main notebook that contains the full analysis workflow, including data preprocessing, model training, evaluation, and comparison of various text classification algorithms.
 
 ### 2. [util/](./utils)
 Utility folder containing configuration files and constant definitions.
