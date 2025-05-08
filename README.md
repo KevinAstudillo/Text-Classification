@@ -16,7 +16,9 @@ To explore and compare the performance of different text classification models a
 
 ## Folder Structure
 
-### 1. [Text Classification.ipynb](./Text Classification.ipynb)
+
+### 1. [Text_Classification.ipynb](./Text_Classification.ipynb)
+
 The main notebook that contains the full analysis workflow, including data preprocessing, model training, evaluation, and comparison of various text classification algorithms.
 
 ### 2. [util/](./utils)
