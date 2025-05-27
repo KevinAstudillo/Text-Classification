@@ -22,7 +22,7 @@ To explore and compare the performance of different text classification models a
 
 The main notebook that contains the full analysis workflow, including data preprocessing, model training, evaluation, and comparison of various text classification algorithms.
 
-### 2. [utils/](./utils)
+### 2. [utils](./utils)
 Utility folder containing configuration files and constant definitions.
 
 - [config/](./src/util/config)
