@@ -22,17 +22,29 @@ To explore and compare the performance of different text classification models a
 
 The main notebook that contains the full analysis workflow, including data preprocessing, model training, evaluation, and comparison of various text classification algorithms.
 
-### 2. [utils](./utils)
-Utility folder containing configuration files and constant definitions.
+> ⚠️ **Note**  
+> To use the Kaggle API for dataset downloads, you must first generate your own API credentials.
+>
+> 1. Go to your Kaggle account settings: [https://www.kaggle.com/account](https://www.kaggle.com/account)  
+> 2. Under the **API** section, click on **"Create New API Token"**.  
+> 3. A file named `kaggle.json` will be downloaded.  
+> 4. Place the `kaggle.json` file in the following path relative to this project:  
+>    ```
+>    utils/config/kaggle.json
+>    ```
 
-- [config/](./src/util/config)
+
+### 2. [utils](./utils)
+Utility folder containing configuration files, constant definitions and images.
+
+- [config](./src/utils/config)
   - [`credentials.yaml`](./src/util/config/credentials.yaml): Stores external access credentials (e.g., database or API keys).
 
 - [constants/](./src/util/constants)
   - [`bc.py`](./src/util/constants/bc.py): Defines constants and mappings used throughout the analysis, such as regions, store formats, socioeconomic levels, and segments.
   - [`gui.py`](./src/util/constants/gui.py): GUI-specific configurations.
 
-- [data/](./src/util/data)
+- [data/](./src/utils/data)
   - Static resources like images and geographic JSON files.
     - Icons: `icono_cogno.png`, `logo_cogno.png`, etc.
     - Maps: `México.json`, `mexicoHigh.json`
