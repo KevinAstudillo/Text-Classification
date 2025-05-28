@@ -1,211 +1,156 @@
-# Text Clasification using distinct ML Models
+# 📝 Text Classification using Multiple ML Models
 
-## 📊 General Overview and Objective
+## 📚 Project Overview
 
-This notebook uses a Kaggle dataset containing thousands of Twitter responses labeled with sentiment. The goal is to build and evaluate different machine learning models for text classification based on these responses.
-
-## 📌 Description
-
-This project implements a text classification system using various machine learning models. It focuses on analyzing Twitter responses labeled by sentiment, allowing for the comparison of different algorithms' performance in sentiment analysis tasks.
-
-## 🎯 Objective
-
-To explore and compare the performance of different text classification models applied to real-world data, providing a foundation for future research and applications in Natural Language Processing (NLP).
+This project implements and compares different Machine Learning models for text classification tasks, using a Twitter dataset sourced from Kaggle. The main goal is to predict the sentiment of tweet responses and analyze the performance of various ML techniques.
 
 ---
 
-## Folder Structure
+## 🚀 Objectives
 
-
-### 1. [Text Classification.ipynb](./Text%20Classification.ipynb)
-
-
-The main notebook that contains the full analysis workflow, including data preprocessing, model training, evaluation, and comparison of various text classification algorithms.
-
-> ⚠️ **Note**  
-> To use the Kaggle API for dataset downloads, you must first generate your own API credentials.
->
-> 1. Go to your Kaggle account settings: [https://www.kaggle.com/account](https://www.kaggle.com/account)  
-> 2. Under the **API** section, click on **"Create New API Token"**.  
-> 3. A file named `kaggle.json` will be downloaded.  
-> 4. Place the `kaggle.json` file in the following path relative to this project:  
->    ```
->    utils/config/kaggle.json
->    ```
-
-
-### 2. [utils](./utils)
-Utility folder containing configuration files, constant definitions and images.
-
-- [config](./src/utils/config)
-  - [`credentials.yaml`](./src/util/config/credentials.yaml): Stores external access credentials (e.g., database or API keys).
-
-- [constants/](./src/util/constants)
-  - [`bc.py`](./src/util/constants/bc.py): Defines constants and mappings used throughout the analysis, such as regions, store formats, socioeconomic levels, and segments.
-  - [`gui.py`](./src/util/constants/gui.py): GUI-specific configurations.
-
-- [data/](./src/utils/data)
-  - Static resources like images and geographic JSON files.
-    - Icons: `icono_cogno.png`, `logo_cogno.png`, etc.
-    - Maps: `México.json`, `mexicoHigh.json`
-
-### 3. [functions/](./src/functions)
-Core logic and processing modules.
-
-- [`analisis_html.py`](./src/functions/analisis_html.py): Parses and processes HTML data for extracting campaign or product insights.
-- [`campana.py`](./src/functions/campana.py): Handles logic related to monetization campaigns.
-- [`connection.py`](./src/functions/connection.py): Manages connections to databases and APIs.
-- [`GUI.py`](./src/functions/GUI.py): Implements the GUI structure and user interaction flows.
-- [`monetizacion.py`](./src/functions/monetizacion.py): Performs calculations and generates monetization analysis.
-- [`path.py`](./src/functions/path.py): Path management and file routing.
-- [`productos.py`](./src/functions/productos.py): Handles product and category information processing.
-- [`publicos_objetivo.py`](./src/functions/publicos_objetivo.py): Segments customers into strategic audiences.
-- [`query_builder.py`](./src/functions/query_builder.py): Dynamically builds SQL queries based on filters.
-- [`radiografia.py`](./src/functions/radiografia.py): Generates brand-level analytical summaries (for PowerBI reports).
-
-### 4. [pages/](./src/pages)
-Additional GUI pages, such as advanced reports or configuration panels.
-
-### 5. [sql_queries/](./src/sql_queries)
-(SQL folder – coming soon): For modular SQL query files, reusable and cleaner.
-
-### 6. [test/](./test)
-Testing and debugging notebooks/scripts.
-- [`test_analisis_bc.ipynb`](./test/test_analisis_bc.ipynb): Example notebook for testing Business Case logic.
+- Explore and preprocess real-world text data.
+- Train, compare, and visualize the performance of several classification models.
+- Generate useful insights for future applications in sentiment analysis and NLP.
 
 ---
 
-## How It Works
+## 🏗️ Project Structure
+```
+Text-Classification/
+│
+├── .env/ # Environment variables (optional)
+├── utils/ # Utility functions and helpers
+│
+├── config/ # Configuration and global resources
+│ ├── pycache/ # Python cache files
+│ ├── constants.py # Global constants and paths
+│ └── kaggle.json # Kaggle API authentication token
+│
+├── data/ # Raw and processed data
+│ ├── twitter_training.csv # Training dataset
+│ ├── twitter_validation.csv # Validation dataset
+│ └── twitter-entity-sentiment-analysis.zip # Original source (optional)
+│
+├── images/ # Generated visualizations
+│ ├── Distribution_Probabilities_Incorrect.png
+│ ├── Distribution_Probabilities_Predicted_Class.png
+│ ├── image_1.png
+│ ├── image_2.png
+│ ├── image_3.png
+│ ├── image_4.png
+│ ├── image_5.png
+│ ├── Model_metrics.png
+│ └── sentiment_by_entity.png
+│
+├── .gitignore # Files/folders ignored by git
+├── README.md # Main project documentation
+├── requirements.txt # Python libraries and dependencies
+└── Text Classification.ipynb # Main project notebook
+```
 
-Each section in the GUI corresponds to a specific stage of the analysis workflow:
 
-📸 _Main menu interface._
+## 🧩 Folder and File Descriptions
 
-![Main Menu](./data/images/0%20Menu%20principal.png)
+- **config/**  
+  Project configuration files, credentials, and global constants.
 
-### 1. **Products**
-Users select the **Products**, **Brands**, **Suppliers**, and **Categories** to be analyzed.
+- **data/**  
+  Contains the datasets used for training and validating the models.
 
-📸 _Product selection interface._
+- **images/**  
+  Stores all the charts and visualizations generated during model analysis and evaluation.
 
-![Products](./data/images/1.1%20Productos.png)
+- **utils/**  
+  Auxiliary functions for preprocessing and analysis, imported in the main notebook.
 
-📸 _Categories selection._
+- **requirements.txt**  
+  List of required dependencies to run the project (`scikit-learn`, `pandas`, `matplotlib`, etc.).
 
-![Products](./data/images/1.2%20Categorías.png)
-
----
-
-### 2. **Business Case**
-This module allows analysis of selected products by filters such as **Socioeconomic Level**, **Store Type**, and **Product Families**. Users can define date ranges and purchase conditions (e.g., minimum ticket).
-
-📸 _Business Case Analysis._
-
-![BC Analisis](./data/images/2.1%20Analisis%20y%20BC.png)
-
-📸 _Business Case - Report Example._
-
-![BC Analisis](./data/images/2.2%20Analisis%20y%20BC%20reporte.png.jpg)
-
----
-
-### 3. **Target Audiences**
-Classifies the customer base into **Loyal**, **Acquired**, or **Recovered** groups based on behavioral patterns. This section quantifies the potential audience for a campaign.
-
-📸 _POs menu._
-
-![PO](./data/images/3%20Publicos%20Objetivo.png)
-
----
-
-### 4. **Contact Lists**
-Based on the audience segments, this section shows how many users can be contacted via **SMS, Email, or WhatsApp**. It helps generate prioritized communication lists per channel.
-
-📸 _Contactable audience by channel._
-
-![Listas de envio - Total](./data/images/4.1%20Listas%20de%20envío.png)
-
-📸 _Contactable audience by channel - Segment by Condition._
-
-![Listas de envio - Cumple condición](./data/images/4.2%20Listas%20de%20envío.png)
-
----
-
-### 5. **Short and Long Radiography**
-Users define an analysis period and ticket condition. This section performs a deep analysis of the selected brand, generating insights for PowerBI reports (auto-exportable).
-
-📸 _Long Radiography selection._
-
-![Radiografía Larga](./data/images/5.1%20Radiografia%20larga.png)
-
-An example of the [Long Radiography](./data/PDF%20reports/Radiografia%20corta.pdf) report can be accesed in the [PDF folder](./data/PDF%20reports)
-
-📸 _Short Radiography selection._
-
-![Radiografía corta](./data/images/5.2%20Radiografia%20corta.png)
-
-An example of the [Short Radiography](./data/PDF%20reports/Radiografia%20corta.pdf) report can be accesed in the [PDF folder](./data/PDF%20reports)
-
-<!-- 📸 _Preview of PowerBI dashboard generated._ -->
+- **Text Classification.ipynb**  
+  The main notebook containing the full workflow: analysis, training, and visualization.
 
 ---
 
-### 6. **Campaign Results**
-Allows users to see, add, update or delete campaign results. All results are stored in the SQL Database and feed the PowerBI Reports.
+## 🛠️ Technologies and Libraries Used
 
-📸 _Campaign Results interface._
-
-![Resultados de Campaña](./data/images/6%20Resultados%20de%20Campaña.png)
-
-An example of the [Campaign Results](./data/PDF%20reports/Resultados%20de%20Campaña.pdf) report can be accesed in the [PDF folder](./data/PDF%20reports)
-
----
-
-### 7. **View/Download Data**
-Allows users to revisit and download previously generated tables and datasets.
-
-📸 _Export generated datasets._
-
-![Guardar datos](./data/images/7%20Ver%20o%20Guardar%20datos.png)
+- **Python 3.x**
+- **Pandas** and **NumPy**: Data manipulation and analysis
+- **scikit-learn**: Machine Learning models and evaluation
+- **Matplotlib** and **Seaborn**: Data visualization
+- **Jupyter Notebook**
 
 ---
 
-## Project Results and Conclusions
+## 📈 Project Workflow
 
-This project provides a comprehensive tool for managing and analyzing sales campaigns, customer behavior, product performance, and generating strategic audiences for communication.
+1. **Data loading and exploration:**  
+  Import datasets and perform exploratory analysis to understand the distribution and features of the text data.
 
-### Achievements:
+2. **Preprocessing:**  
+  Clean data, normalize text, tokenize, and vectorize (CountVectorizer, TF-IDF, etc.).
 
-- ✅ **Process Automation** – Eliminates repetitive manual tasks in report generation.
-- ✅ **Enhanced Decision-Making** – Data visualizations provide clear campaign insights.
-- ✅ **Modular & Scalable Design** – Easy to expand and integrate with new features or systems.
-- ✅ **Time Savings** – Cuts analysis time by over 80%, allowing focus on higher-impact data science.
-- ✅ **Improved Information Control** – Simple generation, viewing, and export of reports.
-- ✅ **Centralized Platform** – Everything needed for campaign planning in one place.
+3. **Model training:**  
+  Multiple classic ML models are trained and compared for text classification, including:
+  - Logistic Regression
+  - Naive Bayes
+  - Support Vector Machines (SVM)
+  - Random Forest
+  - XGBoost (optional)
 
----
+4. **Evaluation and visualization:**  
+  Key metrics such as accuracy, precision, recall, and f1-score; visualization of confusion matrices and prediction distributions.
 
-## Contact
-
-For questions or suggestions, please contact:
-
-**Ricardo Jaramillo**  
-📧 [r.jaramillohernandez@outlook.com](mailto:r.jaramillohernandez@outlook.com)
-
----
-
-## Extras
-
-- ✅ Easy to adapt to other products or market segments.
-- 🚀 Plans for future integration with Streamlit or cloud APIs.
-- 🔐 Secure credentials stored separately.
-- 🧠 Built with modular Python components for clarity and maintainability.
+5. **Conclusions:**  
+  Analysis of results and recommendations on which model is most robust for this type of data.
 
 ---
 
-## Requirements
+## 🏆 Key Results
 
-Install dependencies via:
+- Clear performance comparison among classic text classification models.
+- Intuitive visualizations to understand each model's strengths and weaknesses.
+- Recommendations for future use and improvements of NLP models in both Spanish and English.
 
-```bash
-pip install -r requirements.txt
+<div align="center">
+  <img src="images/Model_metrics.png" alt="Model comparison" width="60%">
+  <p><i>Comparison of key metrics across models</i></p>
+</div>
+
+---
+
+## 📂 How to Use This Project
+
+1. **Clone the repository**
+  ```bash
+  git clone https://github.com/your_username/Text-Classification.git
+  cd Text-Classification
+  Install the dependencies
+  Copiar
+  Editar
+  pip install -r requirements.txt
+  Run the notebook
+  ```
+
+Open Text Classification.ipynb using Jupyter Notebook or VSCode.
+
+Replace/update the datasets if you wish to use your own data
+
+---
+
+## 🤝 Credits & Acknowledgments
+Dataset from Kaggle Twitter Sentiment Analysis.
+
+Inspiration and resources from the Data Science community.
+
+---
+
+## 📬 Contact
+
+Kevin Astudillo
+📧 astudillo.kevim@gmail.com
+
+Ricardo Jaramillo
+📧 r.jaramillohernandez@outlook.com
+
+Questions, suggestions, or want to collaborate?
+Open an issue or reach out!
