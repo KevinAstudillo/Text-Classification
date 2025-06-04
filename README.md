@@ -118,7 +118,35 @@ Text-Classification/
 - Intuitive visualizations to understand each model's strengths and weaknesses.
 - Recommendations for future use and improvements of NLP models in both Spanish and English.
 
+ The following visualizations provide a comprehensive overview of the performance of the text classification model. These plots offer valuable insights into how the model assigns prediction probabilities and how they correlate with correct and incorrect classifications.
+
+### 📊 **Probability Distribution of Incorrect Predictions**
+This plot illustrates how the model assigns different probability scores to its incorrect predictions.
+
+- X-axis (Prediction Probability): Represents the confidence score assigned by the model to each prediction.
+
+ - Y-axis (Frequency): Indicates how frequently each range of probability values occurs among incorrect predictions.
+
+The chart reveals that most misclassifications are associated with lower probability values, typically around 0.3, suggesting the model tends to be less confident when it makes a mistake. However, there are also instances of incorrect predictions with high confidence scores, indicating that the model can occasionally be overconfident in its wrong decisions — a potential area for improvement.
+
 ![Model Evaluation and Metrics Overview](utils/images/Distribution_Probabilities_Incorrect.png)
+
+### 📈 Probability Distribution by Prediction Outcome (Correct vs. Incorrect)
+
+This second plot compares the probability distributions for correct and incorrect predictions.
+
+Orange Curve (Correct): Represents the distribution of probabilities for predictions the model classified correctly.
+
+Blue Curve (Incorrect): Represents the distribution for misclassified predictions.
+
+- X-axis (Prediction Probability): Indicates the model's assigned confidence.
+
+- Y-axis (Frequency): Represents how often each probability range appears.
+
+From the graph, we observe that correct predictions tend to cluster around higher probability values (close to 1.0), demonstrating that the model is generally confident when making accurate predictions. In contrast, incorrect predictions are more spread out across lower probability ranges, though some still occur with high confidence.
+
+
+
 ![Probability Distribution of Incorrect Predictions](utils/images/Distribution_Probabilities_Predicted_Class.png)
 
 ---
