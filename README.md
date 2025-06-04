@@ -84,32 +84,60 @@ Text-Classification/
 ## 📈 Project Workflow
 
 1. **Data loading and exploration:**  
-  Import datasets and perform exploratory analysis to understand the distribution and features of the text data.
 
+The project begins by loading a dataset of product reviews, where each review is labeled as either positive or negative. An initial exploratory analysis is conducted to understand the class distribution and the typical length of the reviews.
+
+- **Class Distribution Visualization:**
+A bar chart is used to display the number of positive,negative, neutral and irrelevant reviews. 
   ![Exploratory Data Visualization for Sentiment and Class Distributions](utils/images/sentiment_by_entity.png)
 
-3. **Preprocessing:**  
+- **Review Length Analysis:**
+A graph is generated to show the number of tweets per type of review. This helps assess whether the dataset is balanced or if one class is overrepresented, which could impact model performance and training dynamics.
+
+  ![Exploratory Data Visualization for Sentiment and Class Distributions](utils/images/image_1.png)
+
+
+2. **Data Preprocessing**
+Before feeding the data into the model, several preprocessing steps are applied to prepare the text for analysis:
+
+- Text Cleaning:
+Special characters are removed, all text is converted to lowercase, and stopwords (commonly used words with little semantic value) are eliminated to reduce noise.
+
+- Tokenization:
+Each review is split into individual words or "tokens," enabling the model to process text at the word level.
+
+- Vectorization:
+The cleaned and tokenized text is transformed into a numerical representation using techniques such as TF-IDF (Term Frequency–Inverse Document Frequency). This method assigns weights to words based on their frequency in a specific review relative to their frequency across the entire dataset, helping the model focus on the most informative terms.
   Clean data, normalize text, tokenize, and vectorize (CountVectorizer, TF-IDF, etc.).
+
 ![Visualization of Raw Data Prior to Cleaning](utils/images/image_3.png)
 ![Raw Data Visualization After Cleaning](utils/images/image_4.png)
+
+This analysis is particularly useful for determining an appropriate maximum input length for the model, ensuring it can effectively process the textual data without truncating valuable information.
+
 ![UMBRAL DE N_GRMS PRIOR TO CLEANING](utils/images/image_5.png)
 ![UMBRAL OF THE N GRAMS AFTER CLEANING](utils/images/image_6.png)
-5. **Model training:**  
+3. **Model training:**  
   Multiple classic ML models are trained and compared for text classification, including:
   - Logistic Regression
   - Naive Bayes
-  - Support Vector Machines (SVM)
   - Random Forest
-  - XGBoost (optional)
 
-4. **Evaluation and visualization:**  
-  Key metrics such as accuracy, precision, recall, and f1-score; visualization of confusion matrices and prediction distributions.
+
+
+4. **Model Evaluation**
+After training, the model is evaluated using the test dataset. Key performance metrics such as accuracy, the confusion matrix, and the classification report are calculated to assess its effectiveness.
+
+ **Confusion Matrix:**
+Displays the number of correct and incorrect predictions made by the model for each class, offering a clear view of how well the model distinguishes between positive and negative reviews.
+
+ **Classification Report:**
+Provides detailed performance metrics, including precision, recall, and F1-score for each class. These metrics offer deeper insights into the model's strengths and areas for improvement.
 
   ![Model Evaluation and Metrics Overview](utils/images/Model_metrics.png)
 
-6. **Conclusions:**  
-  Analysis of results and recommendations on which model is most robust for this type of data.
-
+5. **Prediction on New Reviews**
+Finally, the model is used to predict the sentiment of previously unseen reviews. This step demonstrates the model's ability to generalize beyond the training data and showcases its potential usefulness in real-world applications.
 ---
 
 ## 🏆 Key Results
