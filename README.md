@@ -86,10 +86,15 @@ Text-Classification/
 1. **Data loading and exploration:**  
   Import datasets and perform exploratory analysis to understand the distribution and features of the text data.
 
-2. **Preprocessing:**  
-  Clean data, normalize text, tokenize, and vectorize (CountVectorizer, TF-IDF, etc.).
+  ![Exploratory Data Visualization for Sentiment and Class Distributions](utils/images/sentiment_by_entity.png)
 
-3. **Model training:**  
+3. **Preprocessing:**  
+  Clean data, normalize text, tokenize, and vectorize (CountVectorizer, TF-IDF, etc.).
+![Visualization of Raw Data Prior to Cleaning](utils/images/image_3.png)
+![Raw Data Visualization After Cleaning](utils/images/image_4.png)
+![UMBRAL DE N_GRMS PRIOR TO CLEANING](utils/images/image_5.png)
+![UMBRAL OF THE N GRAMS AFTER CLEANING](utils/images/image_6.png)
+5. **Model training:**  
   Multiple classic ML models are trained and compared for text classification, including:
   - Logistic Regression
   - Naive Bayes
@@ -100,7 +105,9 @@ Text-Classification/
 4. **Evaluation and visualization:**  
   Key metrics such as accuracy, precision, recall, and f1-score; visualization of confusion matrices and prediction distributions.
 
-5. **Conclusions:**  
+  ![Model Evaluation and Metrics Overview](utils/images/Model_metrics.png)
+
+6. **Conclusions:**  
   Analysis of results and recommendations on which model is most robust for this type of data.
 
 ---
@@ -111,10 +118,8 @@ Text-Classification/
 - Intuitive visualizations to understand each model's strengths and weaknesses.
 - Recommendations for future use and improvements of NLP models in both Spanish and English.
 
-<div align="center">
-  <img src="images/Model_metrics.png" alt="Model comparison" width="60%">
-  <p><i>Comparison of key metrics across models</i></p>
-</div>
+![Model Evaluation and Metrics Overview](utils/images/Distribution_Probabilities_Incorrect.png)
+![Probability Distribution of Incorrect Predictions](utils/images/Distribution_Probabilities_Predicted_Class.png)
 
 ---
 
